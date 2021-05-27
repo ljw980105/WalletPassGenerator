@@ -3,10 +3,6 @@ import ShellOut
 import ZIPFoundation
 
 public struct PassGenerator {
-    public static func gen() -> String {
-        return try! ShellOutCommand.getSHA1ChecksumForFile(named: "Package.swift")
-    }
-    
     /// Generate a pass. Note the certificates and the assets should already be located at the url provided before this method is called
     /// - Parameters:
     ///   - pass: the path you want to generate

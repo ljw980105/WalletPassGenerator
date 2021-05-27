@@ -15,7 +15,7 @@ public struct PassBarcode: Codable {
     public init(
         message: String,
         format: PassBarcodeFormat,
-        encoding: PassBarcodeEncoding
+        encoding: PassBarcodeEncoding = .iso_8859_1
     ) {
         self.message = message
         self.format = format.rawValue
@@ -25,6 +25,8 @@ public struct PassBarcode: Codable {
 
 public enum PassBarcodeFormat: String {
     case pdf417 = "PKBarcodeFormatPDF417"
+    case qr = "PKBarcodeFormatQR"
+    case aztec = "PKBarcodeFormatAztec"
 }
 
 public enum PassBarcodeEncoding: String {
