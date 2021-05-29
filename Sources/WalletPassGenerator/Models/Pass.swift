@@ -19,9 +19,12 @@ public struct Pass: Codable {
     public let foregroundColor: String?
     public let backgroundColor: String?
     public let labelColor: String?
-    public let barcode: PassBarcode
+    public let barcodes: [PassBarcode]
     public let coupon: PassContent?
     public let boardingPass: PassContentTransit?
+    public let storeCard: PassContent?
+    public let eventTicket: PassContent?
+    public let generic: PassContent?
     
     public init(
         formatVersion: Int,
@@ -34,9 +37,12 @@ public struct Pass: Codable {
         foregroundColor: PassColor?,
         backgroundColor: PassColor?,
         labelColor: PassColor?,
-        barcode: PassBarcode,
+        barcodes: [PassBarcode] = [],
         coupon: PassContent? = nil,
-        boardingPass: PassContentTransit? = nil
+        boardingPass: PassContentTransit? = nil,
+        storeCard: PassContent? = nil,
+        eventTicket: PassContent? = nil,
+        genericPass: PassContent? = nil
     ) {
         self.formatVersion = formatVersion
         self.passTypeIdentifier = passTypeIdentifier
@@ -47,9 +53,12 @@ public struct Pass: Codable {
         self.backgroundColor = backgroundColor?.stringForm
         self.labelColor = labelColor?.stringForm
         self.coupon = coupon
-        self.barcode = barcode
+        self.barcodes = barcodes
         self.logoText = logoText
         self.description = description
         self.boardingPass = boardingPass
+        self.storeCard = storeCard
+        self.eventTicket = eventTicket
+        self.generic = genericPass
     }
 }

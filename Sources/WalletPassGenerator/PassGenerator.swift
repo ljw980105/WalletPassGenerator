@@ -1,12 +1,11 @@
 import Foundation
 import ShellOut
-import ZIPFoundation
 
 public struct PassGenerator {
     /// Generate a pass. Note the certificates and the assets should already be located at the url provided before this method is called
     /// - Parameters:
-    ///   - pass: the path you want to generate
-    ///   - url: the where you want the pass to appear
+    ///   - pass: the pass you want to generate
+    ///   - url: where you want the pass to appear
     ///   - certificateName: p12 certificate
     ///   - wwdrCertificateName: name of the Apple Worldwide Developer Relations certificate, format should be `.pem`
     ///   - assets: Names of the asset files

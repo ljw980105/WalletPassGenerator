@@ -7,28 +7,32 @@
 
 import Foundation
 
+/// https://developer.apple.com/documentation/walletpasses/pass/barcodes
 public struct PassBarcode: Codable {
     public let message: String
-    public let format: String
-    public let messageEncoding: String
+    public let format: PassBarcodeFormat
+    public let messageEncoding: PassBarcodeEncoding
+    public let altText: String?
     
     public init(
         message: String,
         format: PassBarcodeFormat,
-        encoding: PassBarcodeEncoding = .iso_8859_1
+        encoding: PassBarcodeEncoding = .iso_8859_1,
+        altText: String? = nil
     ) {
         self.message = message
-        self.format = format.rawValue
-        self.messageEncoding = encoding.rawValue
+        self.format = format
+        self.messageEncoding = encoding
+        self.altText = altText
     }
 }
 
-public enum PassBarcodeFormat: String {
+public enum PassBarcodeFormat: String, Codable {
     case pdf417 = "PKBarcodeFormatPDF417"
     case qr = "PKBarcodeFormatQR"
     case aztec = "PKBarcodeFormatAztec"
 }
 
-public enum PassBarcodeEncoding: String {
+public enum PassBarcodeEncoding: String, Codable {
     case iso_8859_1 = "iso-8859-1"
 }
