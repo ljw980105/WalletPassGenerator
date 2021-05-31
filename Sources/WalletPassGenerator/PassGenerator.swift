@@ -6,7 +6,7 @@ public struct PassGenerator {
     /// - Parameters:
     ///   - pass: the pass you want to generate
     ///   - url: where you want the pass to appear
-    ///   - certificateName: p12 certificate
+    ///   - certificateName: p12 certificate. See how to generate one at https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007
     ///   - wwdrCertificateName: name of the Apple Worldwide Developer Relations certificate, format should be `.pem`
     ///   - assets: Names of the asset files
     ///   - named: Name of the pass, should end with extension .pkpass

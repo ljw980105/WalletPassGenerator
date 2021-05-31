@@ -13,11 +13,9 @@ extension ShellOutCommand {
         named name: String,
         at url: String = "."
     ) throws -> String {
-        let handle = FileHandle()
         return try shellOut(
             to: "openssl sha1 \(name)",
-            at: url,
-            outputHandle: handle
+            at: url
         ) // returns example: SHA1(strip.png)= f9ff3e5c31c0b17aa52de3b58a9bb369f52a53b0
         .components(separatedBy: " ").last ?? ""
     }
