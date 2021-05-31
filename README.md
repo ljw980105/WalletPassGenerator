@@ -1,6 +1,6 @@
 # WalletPassGenerator
 
-Swift Package to generate a pass for Apple Wallet. This package is essentially an automated swift script of creating a wallet pass using the process described in this awesome ![Ray Wenderlich Article](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007)
+Swift Package to generate a pass for Apple Wallet. This package is essentially an automated swift script of creating a wallet pass using the process described in this awesome [Ray Wenderlich Article](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007)
 
 Notice that this package at the moment only supports macOS and Linux (when using a framework such as Vapor). **Running this package on iOS is not supported**.
 
@@ -63,9 +63,9 @@ try PassGenerator.generatePass(
     * `pass`: The pass object to generate the pass from
     * `named`: The name of the pass. The name should have a file extension `.pkpass`
     * `url`:  The url where the final pass should appear in. **Note the certificates and the assets should already be located at this url before this method is called**.
-    * `certificateName`: The certificate you created on the Apple Developer Portal with passKit as one of its capabilities, exported in the p12 format.  See ![this article](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007) for how to create one.
-    * `wwdrCertificateName`: The pem certificate for Apple Worldwide Developer Relations. See ![this](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-011) for how to get one.
-    * `assets`: The file names of assets (excluding `pass.json`, `manifest.json` and `signature`). See ![this](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-005) for all possible assets to provide.
+    * `certificateName`: The certificate you created on the Apple Developer Portal with passKit as one of its capabilities, exported in the p12 format.  See [this article](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007) for how to create one.
+    * `wwdrCertificateName`: The pem certificate for Apple Worldwide Developer Relations. See [this](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-011) for how to get one.
+    * `assets`: The file names of assets (excluding `pass.json`, `manifest.json` and `signature`). See [this](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-005) for all possible assets to provide.
     
 * After calling this method, a `.pkpass` file should appear at the given url.
 
