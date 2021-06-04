@@ -15,7 +15,7 @@ public struct Pass: Codable {
     public let teamIdentifier: String
     public let organizationName: String
     public let description: String
-    public let logoText: String
+    public let logoText: String?
     public let foregroundColor: String?
     public let backgroundColor: String?
     public let labelColor: String?
@@ -33,7 +33,7 @@ public struct Pass: Codable {
         teamIdentifier: String,
         organizationName: String,
         description: String,
-        logoText: String,
+        logoText: String?,
         foregroundColor: PassColor?,
         backgroundColor: PassColor?,
         labelColor: PassColor?,

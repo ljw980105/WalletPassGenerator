@@ -1,12 +1,14 @@
 # WalletPassGenerator
 
-Swift Package to generate a pass for Apple Wallet. This package is essentially an automated swift script of creating a wallet pass using the process described in this awesome [Ray Wenderlich Article](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007)
+Swift Package to generate a pass for Apple Wallet. This package is essentially an automated swift script of creating a wallet pass using the process described in this awesome [Ray Wenderlich Article](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2)
 
 Notice that this package at the moment only supports macOS and Linux (when using a framework such as Vapor). **Running this package on iOS is not supported**.
 
 ## Installation:
 
 TBD
+
+* When running on linux, make sure the command line tools  `openssl` and `zip` are installed.
 
 ## Usage Guide
 

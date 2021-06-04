@@ -9,8 +9,11 @@ public struct PassGenerator {
     ///   - certificateName: p12 certificate. See how to generate one at https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-007
     ///   - wwdrCertificateName: name of the Apple Worldwide Developer Relations certificate, format should be `.pem`
     ///   - assets: Names of the asset files
-    ///   - named: Name of the pass, should end with extension .pkpass
+    ///   - name: Name of the pass, should end with extension .pkpass
+    ///   - completion: called when the completed pkpass file is generated. The pass is passed in as argument to the callback
     /// - Throws: Error
+    /// - Returns: The pkpass file
+    @discardableResult
     public static func generatePass(
         _ pass: Pass,
         named name: String,
@@ -18,7 +21,7 @@ public struct PassGenerator {
         certificateName: String,
         wwdrCertificateName: String,
         assets: [String]
-    ) throws {
+    ) throws -> Data? {
         let fileURL = URL(fileURLWithPath: url.absoluteString)
         // generate pass.json
         let jsonEncoder = JSONEncoder()
@@ -63,6 +66,9 @@ public struct PassGenerator {
             to: "zip -r \(name) manifest.json pass.json signature \(assets.joined(separator: " "))",
             at: url.absoluteString
         )
+        
+        let finalUrl = fileURL.appendingPathComponent(name)
+        return try Data(contentsOf: finalUrl)
     }
     
     
