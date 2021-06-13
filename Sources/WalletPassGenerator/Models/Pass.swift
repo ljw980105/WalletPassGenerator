@@ -8,6 +8,7 @@
 import Foundation
 
 /// I.e. content of the pass.json file
+/// For all available fields and their documentation, see https://developer.apple.com/documentation/walletpasses/pass
 public struct Pass: Codable {
     public let formatVersion: Int
     public let passTypeIdentifier: String
@@ -19,6 +20,9 @@ public struct Pass: Codable {
     public let foregroundColor: String?
     public let backgroundColor: String?
     public let labelColor: String?
+    public let relevantDate: String?
+    public let locations: [PassLocation]?
+    public let maxDistance: Int?
     public let barcodes: [PassBarcode]
     public let coupon: PassContent?
     public let boardingPass: PassContentTransit?
@@ -38,6 +42,9 @@ public struct Pass: Codable {
         backgroundColor: PassColor?,
         labelColor: PassColor?,
         barcodes: [PassBarcode] = [],
+        relevantDate: String? = nil,
+        locations: [PassLocation]? = nil,
+        maxDistance: Int? = nil,
         coupon: PassContent? = nil,
         boardingPass: PassContentTransit? = nil,
         storeCard: PassContent? = nil,
@@ -52,6 +59,9 @@ public struct Pass: Codable {
         self.foregroundColor = foregroundColor?.stringForm
         self.backgroundColor = backgroundColor?.stringForm
         self.labelColor = labelColor?.stringForm
+        self.relevantDate = relevantDate
+        self.locations = locations
+        self.maxDistance = maxDistance
         self.coupon = coupon
         self.barcodes = barcodes
         self.logoText = logoText

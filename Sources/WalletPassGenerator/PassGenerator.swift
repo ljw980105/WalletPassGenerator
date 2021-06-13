@@ -10,9 +10,9 @@ public struct PassGenerator {
     ///   - wwdrCertificateName: name of the Apple Worldwide Developer Relations certificate, format should be `.pem`
     ///   - assets: Names of the asset files
     ///   - name: Name of the pass, should end with extension .pkpass
-    ///   - completion: called when the completed pkpass file is generated. The pass is passed in as argument to the callback
     /// - Throws: Error
     /// - Returns: The pkpass file
+    /// - Note: This mehtod blocks the thread until the pass is fully generated. It's fully synchronous
     @discardableResult
     public static func generatePass(
         _ pass: Pass,
@@ -29,19 +29,15 @@ public struct PassGenerator {
         try data.write(to: fileURL.appendingPathComponent("pass.json"))
         
         // generate manifest.json
-        var manifest = "{"
-        manifest += try assets
-            .map { assetName in
-                "\"\(assetName)\": \"\(try ShellOutCommand.getSHA1ChecksumForFile(named: assetName, at: url.absoluteString))\""
-            }
-            .joined(separator: ", ")
-        manifest += ",\"pass.json\":\"\(try ShellOutCommand.getSHA1ChecksumForFile(named: "pass.json", at: url.absoluteString))\""
-        manifest += "}"
-        try manifest.write(
-            to: fileURL.appendingPathComponent("manifest.json"),
-            atomically: true,
-            encoding: .utf8
-        )
+        var manifest: [String: String] = [:]
+        for asset in assets + ["pass.json"] {
+            manifest[asset] = try ShellOutCommand.getSHA1ChecksumForFile(
+                named: asset,
+                at: url.absoluteString
+            )
+        }
+        let json = try JSONSerialization.data(withJSONObject: manifest, options: [])
+        try json.write(to: fileURL.appendingPathComponent("manifest.json"))
         
         // generate additional certificates
         // generate passcertificate.pem
