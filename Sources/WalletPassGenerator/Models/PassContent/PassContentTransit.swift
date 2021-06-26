@@ -13,6 +13,15 @@ import Foundation
 /// .init(key: "Date2", label: "Destination", value: "2021-05-18T17:00Z", dateStyle: .short, timeStyle: .short)
 /// ```
 public class PassContentTransit: Codable {
+    public enum TransitType: String, Codable {
+        case air = "PKTransitTypeAir"
+        case train = "PKTransitTypeTrain"
+        case bus = "PKTransitTypeBus"
+        case boat = "PKTransitTypeBoat"
+        case generic = "PKTransitTypeGeneric"
+    }
+
+    
     public let primaryFields: [Field]
     public let secondaryFields: [Field]?
     public let auxiliaryFields: [Field]?
@@ -36,13 +45,3 @@ public class PassContentTransit: Codable {
         self.transitType = transitType
     }
 }
-
-public enum TransitType: String, Codable {
-    case air = "PKTransitTypeAir"
-    case train = "PKTransitTypeTrain"
-    case bus = "PKTransitTypeBus"
-    case boat = "PKTransitTypeBoat"
-    case generic = "PKTransitTypeGeneric"
-}
-
-
