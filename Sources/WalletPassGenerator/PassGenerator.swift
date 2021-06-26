@@ -12,7 +12,7 @@ public struct PassGenerator {
     ///   - name: Name of the pass, should end with extension .pkpass
     /// - Throws: Error
     /// - Returns: The pkpass file
-    /// - Note: This mehtod blocks the thread until the pass is fully generated. It's fully synchronous
+    /// - Note: This method blocks the thread until the pass is fully generated. It's fully synchronous
     @discardableResult
     public static func generatePass(
         _ pass: Pass,

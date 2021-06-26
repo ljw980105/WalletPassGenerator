@@ -8,6 +8,7 @@
 import Foundation
 
 public extension Pass {
+    /// [documentation](https://developer.apple.com/documentation/walletpasses/pass/nfc)
     struct NFC: Codable {
         public let encryptionPublicKey: String
         public let message: String
