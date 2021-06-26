@@ -24,6 +24,18 @@ public struct Pass: Codable {
     public let locations: [Location]?
     public let maxDistance: Int?
     public let barcodes: [Barcode]
+    public let beacons: [Beacon]?
+    public let nfc: [NFC]?
+    public let appLaunchURL: String?
+    public let associatedStoreIdentifiers: [Int]?
+    public let authenticationToken: String?
+    public let expirationDate: String?
+    public let groupingIdentifier: String?
+    public let sharingProhibited: Bool?
+    public let suppressStripShine: Bool?
+    public let userInfo: [String: String]?
+    public let voided: Bool?
+    public let webServiceURL: String?
     public let coupon: PassContent?
     public let boardingPass: PassContentTransit?
     public let storeCard: PassContent?
@@ -45,6 +57,18 @@ public struct Pass: Codable {
         relevantDate: String? = nil,
         locations: [Location]? = nil,
         maxDistance: Int? = nil,
+        beacons: [Beacon]? = nil,
+        nfc: [NFC]? = nil,
+        appLaunchURL: String? = nil,
+        associatedStoreIdentifiers: [Int]? = nil,
+        authenticationToken: String? = nil,
+        expirationDate: String? = nil,
+        groupingIdentifier: String? = nil,
+        sharingProhibited: Bool? = nil,
+        suppressStripShine: Bool? = nil,
+        userInfo: [String: String]? = nil,
+        voided: Bool? = nil,
+        webServiceURL: String? = nil,
         coupon: PassContent? = nil,
         boardingPass: PassContentTransit? = nil,
         storeCard: PassContent? = nil,
@@ -62,6 +86,18 @@ public struct Pass: Codable {
         self.relevantDate = relevantDate
         self.locations = locations
         self.maxDistance = maxDistance
+        self.beacons = beacons
+        self.nfc = nfc
+        self.appLaunchURL = appLaunchURL
+        self.associatedStoreIdentifiers = associatedStoreIdentifiers
+        self.authenticationToken = authenticationToken
+        self.expirationDate = expirationDate
+        self.groupingIdentifier = groupingIdentifier
+        self.sharingProhibited = sharingProhibited
+        self.suppressStripShine = suppressStripShine
+        self.userInfo = userInfo
+        self.voided = voided
+        self.webServiceURL = webServiceURL
         self.coupon = coupon
         self.barcodes = barcodes
         self.logoText = logoText

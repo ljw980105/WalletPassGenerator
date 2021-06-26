@@ -32,7 +32,7 @@ public extension Pass {
         case pdf417 = "PKBarcodeFormatPDF417"
         case qr = "PKBarcodeFormatQR"
         case aztec = "PKBarcodeFormatAztec"
-        case _128 = "PKBarcodeFormatCode128"
+        case code128 = "PKBarcodeFormatCode128"
     }
 
     enum BarcodeEncoding: String, Codable {

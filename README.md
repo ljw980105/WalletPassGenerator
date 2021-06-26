@@ -6,7 +6,13 @@ Notice that this package at the moment only supports macOS and Linux (when using
 
 ## Installation:
 
-TBD
+In your `Package.swift`:
+
+```swift
+package.dependencies.append(
+    .package(url: "https://github.com/ljw980105/WalletPassGenerator.git", from: "1.0.0")
+)
+```
 
 * When running on linux, make sure the command line tools  `openssl` and `zip` are installed.
 
@@ -69,7 +75,7 @@ try PassGenerator.generatePass(
     * `wwdrCertificateName`: The pem certificate for Apple Worldwide Developer Relations. See [this](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-011) for how to get one.
     * `assets`: The file names of assets (excluding `pass.json`, `manifest.json` and `signature`). See [this](https://www.raywenderlich.com/2855-beginning-passbook-in-ios-6-part-1-2#toc-anchor-005) for all possible assets to provide.
     
-* After calling this method, a `.pkpass` file should appear at the given url.
+* After calling this method, a `.pkpass` file should appear at the given url, and be returned with the above method.
 
 
 ### Thanks for stopping by!
